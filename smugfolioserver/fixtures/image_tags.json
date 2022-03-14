@@ -1,0 +1,20 @@
+[
+    {
+        "image_tag_name": "landscape"
+    },
+    {
+        "image_tag_name": "portrait"
+    },
+    {
+        "image_tag_name": "night"
+    },
+    {
+        "image_tag_name": "high key"
+    },
+    {
+        "image_tag_name": "family"
+    },
+    {
+        "image_tag_name": "wedding"
+    }
+]
