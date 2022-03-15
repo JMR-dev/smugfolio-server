@@ -4,8 +4,8 @@
         "pk": 1,
         "fields":
         {
-        "first name":"Ansel",
-        "last name": "Adams",
+        "first_name":"Ansel",
+        "last_name": "Adams",
         "password":"pbkdf2_sha256$216000$qMRH8szID7Z8$Vljya2V3XfruOHuvx1hGz9ZyKg4bxbw7rc2WO0gTR7I=",
         "is_superuser": true,
         "username": "a.adams@goingtothesunphotography.com",

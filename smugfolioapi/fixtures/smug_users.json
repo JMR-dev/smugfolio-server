@@ -1,0 +1,13 @@
+[
+    {
+    "model": "smugfolioapi.smug_users",
+    "pk": 1,
+    "fields":
+    {
+        "business_name":"Going-to-the-Sun Photography",
+        "business_owner": true,
+        "user": 1
+    }
+}
+    
+]
