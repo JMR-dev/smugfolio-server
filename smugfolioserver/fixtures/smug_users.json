@@ -1,20 +1,14 @@
 [
     {
-        "first name":"Nate",
-        "last name":"Lubbe",
-        "business name":"Going-to-the-Sun Photography",
-        "business owner": false
-    },
+    "model": "smugfolioapi.smug_users",
+    "pk": 1,
+    "fields":
     {
         "first name":"Ansel",
         "last name":"Adams",
         "business name":"Going-to-the-Sun Photography",
         "business owner": true
-    },
-    {
-        "first name":"Chris",
-        "last name":"Cotuna",
-        "business name":"Going-to-the-Sun Photography",
-        "business owner": false
     }
+}
+    
 ]
