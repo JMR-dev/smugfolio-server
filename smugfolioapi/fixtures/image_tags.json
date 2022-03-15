@@ -1,0 +1,45 @@
+[{
+        "model": "smugfolioapi.image_tags",
+        "pk": 1,
+        "fields": {
+            "image_tag_name": "landscape"
+        }
+    },
+    {
+        "model": "smugfolioapi.image_tags",
+        "pk": 2,
+        "fields": {
+            "image_tag_name": "portrait"
+        }
+    },
+    {
+        "model": "smugfolioapi.image_tags",
+        "pk": 3,
+        "fields": 
+            {
+                "image_tag_name": "night"
+            }
+        
+    },
+    {
+        "model": "smugfolioapi.image_tags",
+        "pk": 4,
+        "fields": {
+            "image_tag_name": "high key"
+        }
+    },
+        {
+            "model": "smugfolioapi.image_tags",
+            "pk": 5,
+            "fields": {
+                "image_tag_name": "family"
+            }
+        },
+        {
+            "model": "smugfolioapi.image_tags",
+            "pk": 6,
+            "fields": {
+                "image_tag_name": "wedding"
+            }
+        }
+    ]
