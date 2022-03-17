@@ -4,6 +4,9 @@ from rest_framework.response import Response
 from rest_framework import serializers, status
 from smugfolioapi.models import Images, Smug_Users
 from PIL import Image
+import uuid
+import base64
+from django.core.files.base import ContentFile
 
 class ImageView(ViewSet):
     """SmugFolio images s view"""
@@ -35,7 +38,7 @@ class ImageView(ViewSet):
         images_ = request.query_params.get('type', None)
         images = Images.objects.all()
         if images_ is not None:
-               images = images.filter(images_type_id=images_)
+            images = images.filter(images_type_id=images_)
         serializer = ImagesSerializer(images, many=True)
         return Response(serializer.data)
     
@@ -46,12 +49,16 @@ class ImageView(ViewSet):
             Response -- JSON serialized images instance
         """
         # object must be retrived when using a foreign key
+        format, imgstr = request.data["picture"].split(';base64,')
+        ext = format.split('/')[-1]
+        data = ContentFile(base64.b64decode(imgstr), name=f'{request.data["picture"]}-{uuid.uuid4()}.{ext}')
         smug_user = Smug_Users.objects.get(user=request.auth.user)
         images = Images.objects.create(
             file_name=request.data["file_name"],
             file_path=request.data["file_path"],
             album_id=request.data["album_id"],
-            smug_user=smug_user,
+            picture= data,
+            smug_user= smug_user,
             upload_date = request.data["upload_date"]
         )
         serializer = ImagesSerializer(images)
@@ -93,7 +100,7 @@ class ImagesSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Images
-        fields = ('id', 'file_name', 'file_path', 'album_id', 'smug_user_id', 'upload_date')
+        fields = ('id', 'file_name', 'file_path', 'album_id', 'smug_user_id', 'upload_date', 'picture', 'imagecount')
         depth = 2
         
 

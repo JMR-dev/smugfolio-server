@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from rest_framework import serializers, status
 from django.contrib.auth.models import User
 from smugfolioapi.models import Image_Tags
+from rest_framework.decorators import action
 
 class ImageTagsView(ViewSet):
     """SmugFolio image_Tags s view"""
