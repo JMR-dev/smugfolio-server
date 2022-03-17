@@ -7,5 +7,9 @@ class Images(models.Model):
     smug_user = models.ForeignKey("Smug_Users", on_delete=models.CASCADE)
     upload_date = models.DateTimeField(auto_now_add=True)
     
+    @property
+    def imagecount(self):
+        return self.__imagecount
+    
     # I believe that auto_now_add is the correct syntax. If I'm understanding this correctly, it only creates a timestamp when the object is first created.
     # https://www.geeksforgeeks.org/datetimefield-django-models/

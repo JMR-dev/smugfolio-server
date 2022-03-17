@@ -16,18 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.conf.urls import include
 from django.urls import path
-from smugfolioapi.models.smug_users import Smug_Users
-from smugfolioapi.views import register_user, login_user, ImageView
+from smugfolioapi.views import register_user, login_user, ImageView, SmugUserView
 from rest_framework import routers
 from django.contrib import admin
 from django.urls import path
-
+from smugfolioapi.views.image_tags import ImageTagsView
 from smugfolioapi.views.images import ImageView
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'images', ImageView, 'image')
-# router.register(r'smug_users',Smug_Users,'smug_user')
-# router.register(r'image_tags', Image_Tags,'image_tag')
+router.register(r'smug_users',SmugUserView,'smug_user')
+router.register(r'image_tags', ImageTagsView,'image_tag')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
