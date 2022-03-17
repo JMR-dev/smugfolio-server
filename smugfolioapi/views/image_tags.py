@@ -45,7 +45,8 @@ class ImageTagsView(ViewSet):
         Returns
             Response -- JSON serialized image_Tags instance
         """
-        image_Tags = image_Tags.objects.create(
+        
+        image_Tags = Image_Tags.objects.create(
             image_tag_name = request.data["image_tag_name"]
             
         )
@@ -59,9 +60,9 @@ class ImageTagsView(ViewSet):
             Response -- Empty body with 204 status code
         """
 
-        image_Tags = Image_Tags.objects.get(pk=request.data['id'])
+        image_Tags = Image_Tags.objects.get(pk=pk)
         image_Tags.image_tag_name = request.data["image_tag_name"]
-        
+        image_Tags.save()
 
         return Response(None, status=status.HTTP_204_NO_CONTENT)
     def destroy(self, request, pk):
@@ -69,12 +70,12 @@ class ImageTagsView(ViewSet):
 
         Args:
             request (object): DELETE request object
-            pk (num): Accepts the argument of the primary key of a image_Tags
+            pk (num): Accepts the argument of the primary key of an image_Tags
 
         Returns:
             Status: If the method completes successfully, return a HTTP response 204 
         """
-        image_Tags = image_Tags.objects.get(pk=pk)
+        image_Tags = Image_Tags.objects.get(pk=pk)
         image_Tags.delete()
         return Response(None, status=status.HTTP_204_NO_CONTENT)
         

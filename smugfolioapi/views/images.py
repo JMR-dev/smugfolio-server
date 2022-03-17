@@ -46,7 +46,7 @@ class ImageView(ViewSet):
             Response -- JSON serialized images instance
         """
         # object must be retrived when using a foreign key
-        smug_user = Smug_Users.objects.get(pk=request.data['smug_user'])
+        smug_user = Smug_Users.objects.get(user=request.auth.user)
         images = Images.objects.create(
             file_name=request.data["file_name"],
             file_path=request.data["file_path"],
@@ -68,8 +68,9 @@ class ImageView(ViewSet):
         images.file_name = request.data["file_name"]
         images.file_path = request.data["file_path"]
         images.album_id = request.data["album_id"]
-        images.smug_user_id = request.data["skill_level"]
-        images.upload_date = request.data["upload_date"]
+        images.smug_user_id = request.data["smug_user_id"]
+        images.upload_date = request.data["upload_date"]    
+        images.save()
 
         return Response(None, status=status.HTTP_204_NO_CONTENT)
     def destroy(self, request, pk):

@@ -38,23 +38,6 @@ class SmugUserView(ViewSet):
                smug_users = smug_users.filter(smug_users_type_id=smug_users_)
         serializer = Smug_UsersSerializer(smug_users, many=True)
         return Response(serializer.data)
-    
-    def create(self, request):
-        """Handle POST operations
-
-        Returns
-            Response -- JSON serialized smug_users instance
-        """
-        # object must be retrived when using a foreign key
-        user = User.objects.get(pk=request.data['users'])
-        smug_users = smug_users.objects.create(
-            user=request.data["user"],
-            business_name=request.data["business_name"],
-            business_owner=request.data["business_owner"],
-            
-        )
-        serializer = Smug_UsersSerializer(smug_users)
-        return Response(serializer.data, status=201)
 
     def update(self, request, pk):
         """Handle PUT requests for a smug_users
