@@ -16,12 +16,19 @@ Including another URLconf
 from django.contrib import admin
 from django.conf.urls import include
 from django.urls import path
-from smugfolioapi.views import register_user, login_user
+from smugfolioapi.views import register_user, login_user, ImageView, SmugUserView
 from rest_framework import routers
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls.static import static
+from smugfolioapi.views.image_tags import ImageTagsView
+from smugfolioapi.views.images import ImageView
+from smugfolioserver import settings, MEDIA_ROOT, MEDIA_URL
 
 router = routers.DefaultRouter(trailing_slash=False)
+router.register(r'images', ImageView, 'image')
+router.register(r'smug_users',SmugUserView,'smug_user')
+router.register(r'image_tags', ImageTagsView,'image_tag')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,4 +36,4 @@ urlpatterns = [
     path('login', login_user),
     path('api-auth', include('rest_framework.urls', namespace='rest_framework')),
     path('', include(router.urls)),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

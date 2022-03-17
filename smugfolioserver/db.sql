@@ -1,2 +1,5 @@
-DELETE FROM 'auth_user'
-WHERE id=2;
+DELETE FROM smugfolioapi_images
+WHERE id = 1;
+
+SELECT *
+FROM smugfolioapi_images;

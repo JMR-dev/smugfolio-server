@@ -149,3 +149,6 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SECRET_KEY = os.environ.get('MY_SECRET_KEY')
+
+MEDIA_ROOT = 'media'
+MEDIA_URL = '/media/'
