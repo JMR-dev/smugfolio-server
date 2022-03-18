@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 class Smug_Users(models.Model):
     
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    business_name = models.CharField(max_length=256)
+    business_name = models.CharField(max_length=256, default="Going-To-The-Sun-Photography")
     business_owner = models.BooleanField(default=False)
     
     

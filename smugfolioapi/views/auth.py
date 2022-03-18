@@ -56,8 +56,7 @@ def register_user(request):
 
     # Now save the extra info in the levelupapi_smug_users table
     smug_users = Smug_Users.objects.create(
-        business_name=request.data['business_name'],
-        business_owner=request.data['business_owner'],
+    
         user=new_user
     )
 
