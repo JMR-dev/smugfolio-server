@@ -9,6 +9,8 @@ class Images(models.Model):
         width_field=None, max_length=None, null=True
     )
     
+    # picture key in the table is storing the file path, not the binary data, so I don't have worry about space constraints with the 100 character limit.
+    
     # @property
     # def imagecount(self):
     #     return self.__imagecount
