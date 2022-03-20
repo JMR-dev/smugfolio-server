@@ -23,7 +23,7 @@ from django.urls import path
 from django.conf.urls.static import static
 from smugfolioapi.views.image_tags import ImageTagsView
 from smugfolioapi.views.images import ImageView
-from smugfolioserver import settings, MEDIA_ROOT, MEDIA_URL
+from django.conf import settings
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'images', ImageView, 'image')

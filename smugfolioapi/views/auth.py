@@ -43,7 +43,6 @@ def register_user(request):
     Method arguments:
       request -- The full HTTP request object
     '''
-
     # Create a new user by invoking the `create_user` helper method
     # on Django's built-in User model
     new_user = User.objects.create_user(

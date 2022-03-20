@@ -4,6 +4,7 @@ class Images(models.Model):
     album_id = models.IntegerField(default=0)
     smug_user = models.ForeignKey("Smug_Users", on_delete=models.CASCADE)
     upload_date = models.DateTimeField(auto_now_add=True)
+    file_name = models
     picture = models.ImageField(
         upload_to='smugimages', height_field=None,
         width_field=None, max_length=None, null=True
