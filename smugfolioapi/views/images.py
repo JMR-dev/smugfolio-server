@@ -69,10 +69,8 @@ class ImageView(ViewSet):
         """
         # Refactor keys to match ERD
         images = Images.objects.get(pk=pk)
-        images.album_id = request.data["album_id"]
-        images.smug_user_id = request.data["smug_user_id"]
-        images.upload_date = request.data["upload_date"]    
-        images.save()
+        images.image_tags.set(request.data["image_tags"])
+        
 
         return Response(None, status=status.HTTP_204_NO_CONTENT)
     def destroy(self, request, pk):
