@@ -73,7 +73,7 @@ class Smug_UsersSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Smug_Users
-        fields = ('id', 'business_name', 'business_owner')
+        fields = ('id', 'business_name', 'business_owner', 'user')
         depth = 2
         
 

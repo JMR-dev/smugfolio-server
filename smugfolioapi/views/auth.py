@@ -25,9 +25,11 @@ def login_user(request):
     # If authentication was successful, respond with their token
     if authenticated_user is not None:
         token = Token.objects.get(user=authenticated_user)
+        smug_user= Smug_Users.objects.get(user=authenticated_user)
         data = {
             'valid': True,
-            'token': token.key
+            'token': token.key,
+            'smug_user_id': smug_user.id
         }
         return Response(data)
     else:
@@ -57,10 +59,11 @@ def register_user(request):
     smug_users = Smug_Users.objects.create(
     
         user=new_user
+
     )
 
     # Use the REST Framework's token generator on the new user account
     token = Token.objects.create(user=smug_users.user)
     # Return the token to the client
-    data = { 'token': token.key }
+    data = { 'token': token.key, 'id': smug_users.id }
     return Response(data, status=201)
